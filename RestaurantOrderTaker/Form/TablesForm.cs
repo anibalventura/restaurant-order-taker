@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RestaurantOrderTaker
 {
-    public partial class Form1 : Form
+    public partial class TablesForm : Form
     {
-        public Form1()
+        public TablesForm()
         {
             InitializeComponent();
         }
