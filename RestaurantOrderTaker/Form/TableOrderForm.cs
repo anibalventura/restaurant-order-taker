@@ -1,4 +1,5 @@
-﻿using RestaurantOrderTaker.CustomControlItem;
+﻿using BusinessLayer.Repository;
+using RestaurantOrderTaker.CustomControlItem;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,9 @@ namespace RestaurantOrderTaker
         public TableOrderForm()
         {
             InitializeComponent();
+
+            // Update table selected.
+            LblTableToOrder.Text = $"Table # {TableRepository.Instance.SelectedTable}";
 
             // Load ComboBox options.
             LoadPeopleOnTableOptions();

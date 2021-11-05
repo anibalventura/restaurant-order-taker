@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer.Enum;
+using BusinessLayer.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,44 +26,40 @@ namespace RestaurantOrderTaker
 
         private void BtnTableOne_Click(object sender, EventArgs e)
         {
-            TableOrderForm newTableOrderForm = new TableOrderForm();
-            newTableOrderForm.Show();
-            this.Hide();
+            SelectTable((int)TableOptions.ONE);
         }
 
         private void BtnTableTwo_Click(object sender, EventArgs e)
         {
-            TableOrderForm newTableOrderForm = new TableOrderForm();
-            newTableOrderForm.Show();
-            this.Hide();
+            SelectTable((int)TableOptions.TWO);
         }
 
         private void BtnTableThree_Click(object sender, EventArgs e)
         {
-            TableOrderForm newTableOrderForm = new TableOrderForm();
-            newTableOrderForm.Show();
-            this.Hide();
+            SelectTable((int)TableOptions.THREE);
         }
 
         private void BtnTableFour_Click(object sender, EventArgs e)
         {
-            TableOrderForm newTableOrderForm = new TableOrderForm();
-            newTableOrderForm.Show();
-            this.Hide();
+            SelectTable((int)TableOptions.FOUR);
         }
 
         private void BtnTableFive_Click(object sender, EventArgs e)
         {
-            TableOrderForm newTableOrderForm = new TableOrderForm();
-            newTableOrderForm.Show();
-            this.Hide();
+            SelectTable((int)TableOptions.FIVE);
         }
 
         #endregion
 
         #region Methods
 
-
+        private void SelectTable(int tableNumber)
+        {
+            TableRepository.Instance.SelectedTable = tableNumber;
+            TableOrderForm newTableOrderForm = new TableOrderForm();
+            newTableOrderForm.Show();
+            this.Hide();
+        }
 
         #endregion
     }
