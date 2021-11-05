@@ -10,12 +10,49 @@ using System.Windows.Forms;
 
 namespace RestaurantOrderTaker
 {
-    public partial class TablesForm : Form
+    public sealed partial class TablesForm : Form
     {
+
+        public static TablesForm Instance { get; } = new TablesForm();
+
         public TablesForm()
         {
             InitializeComponent();
         }
 
+        private void BtnTableOne_Click(object sender, EventArgs e)
+        {
+            TableOrderForm newTableOrderForm = new TableOrderForm();
+            newTableOrderForm.Show();
+            this.Hide();
+        }
+
+        private void BtnTableTwo_Click(object sender, EventArgs e)
+        {
+            TableOrderForm newTableOrderForm = new TableOrderForm();
+            newTableOrderForm.Show();
+            this.Hide();
+        }
+
+        private void BtnTableThree_Click(object sender, EventArgs e)
+        {
+            TableOrderForm newTableOrderForm = new TableOrderForm();
+            newTableOrderForm.Show();
+            this.Hide();
+        }
+
+        private void BtnTableFour_Click(object sender, EventArgs e)
+        {
+            TableOrderForm newTableOrderForm = new TableOrderForm();
+            newTableOrderForm.Show();
+            this.Hide();
+        }
+
+        private void BtnTableFive_Click(object sender, EventArgs e)
+        {
+            TableOrderForm newTableOrderForm = new TableOrderForm();
+            newTableOrderForm.Show();
+            this.Hide();
+        }
     }
 }

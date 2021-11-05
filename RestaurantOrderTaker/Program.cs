@@ -17,7 +17,7 @@ namespace RestaurantOrderTaker
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TablesForm());
+            Application.Run(TablesForm.Instance);
         }
     }
 }

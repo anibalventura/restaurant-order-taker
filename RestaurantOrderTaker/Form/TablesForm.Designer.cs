@@ -29,7 +29,7 @@ namespace RestaurantOrderTaker
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.TblTables = new System.Windows.Forms.TableLayoutPanel();
             this.BtnTableOne = new System.Windows.Forms.Button();
             this.BtnTableThree = new System.Windows.Forms.Button();
             this.BtnTableFour = new System.Windows.Forms.Button();
@@ -37,35 +37,35 @@ namespace RestaurantOrderTaker
             this.BtnTableFive = new System.Windows.Forms.Button();
             this.BtnViewOrders = new System.Windows.Forms.Button();
             this.LblWindowTitle = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.TblTables.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // TblTables
             // 
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.16684F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.55915F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.55915F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.55915F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.15571F));
-            this.tableLayoutPanel1.Controls.Add(this.BtnTableOne, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.BtnTableThree, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.BtnTableFour, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.BtnTableTwo, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.BtnTableFive, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.BtnViewOrders, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.LblWindowTitle, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(565, 424);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.TblTables.ColumnCount = 5;
+            this.TblTables.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.16684F));
+            this.TblTables.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.55915F));
+            this.TblTables.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.55915F));
+            this.TblTables.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.55915F));
+            this.TblTables.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.15571F));
+            this.TblTables.Controls.Add(this.BtnTableOne, 1, 1);
+            this.TblTables.Controls.Add(this.BtnTableThree, 2, 2);
+            this.TblTables.Controls.Add(this.BtnTableFour, 1, 3);
+            this.TblTables.Controls.Add(this.BtnTableTwo, 3, 1);
+            this.TblTables.Controls.Add(this.BtnTableFive, 3, 3);
+            this.TblTables.Controls.Add(this.BtnViewOrders, 2, 4);
+            this.TblTables.Controls.Add(this.LblWindowTitle, 1, 0);
+            this.TblTables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TblTables.Location = new System.Drawing.Point(0, 0);
+            this.TblTables.Name = "TblTables";
+            this.TblTables.RowCount = 5;
+            this.TblTables.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TblTables.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TblTables.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TblTables.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TblTables.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TblTables.Size = new System.Drawing.Size(566, 424);
+            this.TblTables.TabIndex = 0;
             // 
             // BtnTableOne
             // 
@@ -78,6 +78,7 @@ namespace RestaurantOrderTaker
             this.BtnTableOne.TabIndex = 0;
             this.BtnTableOne.Text = "Table # 1";
             this.BtnTableOne.UseVisualStyleBackColor = false;
+            this.BtnTableOne.Click += new System.EventHandler(this.BtnTableOne_Click);
             // 
             // BtnTableThree
             // 
@@ -90,6 +91,7 @@ namespace RestaurantOrderTaker
             this.BtnTableThree.TabIndex = 1;
             this.BtnTableThree.Text = "Table # 3";
             this.BtnTableThree.UseVisualStyleBackColor = false;
+            this.BtnTableThree.Click += new System.EventHandler(this.BtnTableThree_Click);
             // 
             // BtnTableFour
             // 
@@ -102,6 +104,7 @@ namespace RestaurantOrderTaker
             this.BtnTableFour.TabIndex = 2;
             this.BtnTableFour.Text = "Table # 4";
             this.BtnTableFour.UseVisualStyleBackColor = false;
+            this.BtnTableFour.Click += new System.EventHandler(this.BtnTableFour_Click);
             // 
             // BtnTableTwo
             // 
@@ -114,6 +117,7 @@ namespace RestaurantOrderTaker
             this.BtnTableTwo.TabIndex = 3;
             this.BtnTableTwo.Text = "Table # 2";
             this.BtnTableTwo.UseVisualStyleBackColor = false;
+            this.BtnTableTwo.Click += new System.EventHandler(this.BtnTableTwo_Click);
             // 
             // BtnTableFive
             // 
@@ -126,6 +130,7 @@ namespace RestaurantOrderTaker
             this.BtnTableFive.TabIndex = 4;
             this.BtnTableFive.Text = "Table # 5";
             this.BtnTableFive.UseVisualStyleBackColor = false;
+            this.BtnTableFive.Click += new System.EventHandler(this.BtnTableFive_Click);
             // 
             // BtnViewOrders
             // 
@@ -142,7 +147,7 @@ namespace RestaurantOrderTaker
             // 
             this.LblWindowTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblWindowTitle.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.LblWindowTitle, 3);
+            this.TblTables.SetColumnSpan(this.LblWindowTitle, 3);
             this.LblWindowTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LblWindowTitle.Location = new System.Drawing.Point(88, 27);
             this.LblWindowTitle.Name = "LblWindowTitle";
@@ -155,20 +160,20 @@ namespace RestaurantOrderTaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 424);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(566, 424);
+            this.Controls.Add(this.TblTables);
             this.Name = "TablesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tables";
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.TblTables.ResumeLayout(false);
+            this.TblTables.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel TblTables;
         private System.Windows.Forms.Button BtnTableOne;
         private System.Windows.Forms.Button BtnTableThree;
         private System.Windows.Forms.Button BtnTableFour;
