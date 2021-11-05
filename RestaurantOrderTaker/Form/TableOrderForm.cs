@@ -77,7 +77,8 @@ namespace RestaurantOrderTaker
 
         private void CloseForm()
         {
-            this.Close();
+            TablesForm.Instance.Show();
+            this.Hide();
         }
 
         #endregion
