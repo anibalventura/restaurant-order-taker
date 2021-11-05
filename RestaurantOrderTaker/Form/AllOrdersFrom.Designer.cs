@@ -100,6 +100,7 @@ namespace RestaurantOrderTaker
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "All Orders";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AllOrdersFrom_FormClosed);
+            this.Load += new System.EventHandler(this.AllOrdersFrom_Load);
             this.TlpAllOrders.ResumeLayout(false);
             this.TlpAllOrders.PerformLayout();
             this.ResumeLayout(false);
