@@ -49,6 +49,13 @@ namespace RestaurantOrderTaker
             SelectTable((int)TableOptions.FIVE);
         }
 
+        private void BtnViewOrders_Click(object sender, EventArgs e)
+        {
+            AllOrdersFrom newAllOrdersFrom = new AllOrdersFrom();
+            newAllOrdersFrom.Show();
+            this.Hide();
+        }
+
         #endregion
 
         #region Methods

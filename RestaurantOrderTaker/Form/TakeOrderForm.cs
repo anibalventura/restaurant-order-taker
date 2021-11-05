@@ -34,12 +34,7 @@ namespace RestaurantOrderTaker
         {
             CloseForm();
         }
-
-        private void CloseForm()
-        {
-            this.Close();
-        }
-
+        
         #endregion
 
         #region Methods
@@ -267,6 +262,11 @@ namespace RestaurantOrderTaker
             }
 
             CmbxDessert.SelectedItem = CmbxDessert.Items[0];
+        }
+
+        private void CloseForm()
+        {
+            this.Close();
         }
 
         #endregion

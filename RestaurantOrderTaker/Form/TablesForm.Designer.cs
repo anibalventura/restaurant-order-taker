@@ -142,6 +142,7 @@ namespace RestaurantOrderTaker
             this.BtnViewOrders.TabIndex = 5;
             this.BtnViewOrders.Text = "View all orders";
             this.BtnViewOrders.UseVisualStyleBackColor = true;
+            this.BtnViewOrders.Click += new System.EventHandler(this.BtnViewOrders_Click);
             // 
             // LblWindowTitle
             // 
