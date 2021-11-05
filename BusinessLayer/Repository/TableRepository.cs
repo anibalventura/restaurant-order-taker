@@ -10,8 +10,6 @@ namespace BusinessLayer.Repository
 
         public int SelectedTable { get; set; } = 0;
 
-        private TableRepository()
-        {
-        }
+        private TableRepository() { }
     }
 }

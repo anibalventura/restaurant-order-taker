@@ -1,4 +1,7 @@
 ﻿using BusinessLayer.Enum;
+using BusinessLayer.Model;
+using BusinessLayer.Repository;
+using BusinessLayer.Service;
 using RestaurantOrderTaker.CustomControlItem;
 using System;
 using System.Collections.Generic;
@@ -30,14 +33,78 @@ namespace RestaurantOrderTaker
             TableOrderForm.Instance.Show();
         }
 
+        private void BtnSaveOrder_Click(object sender, EventArgs e)
+        {
+            SaveOrder();
+        }
+
         private void BtnCancelOrder_Click(object sender, EventArgs e)
         {
             CloseForm();
         }
-        
+
         #endregion
 
         #region Methods
+
+        private void SaveOrder()
+        {
+            try
+            {
+                string name = TxbName.Text;
+                ComboBoxItem starter = CmbxStarter.SelectedItem as ComboBoxItem;
+                ComboBoxItem mainPlate = CmbxMainPlate.SelectedItem as ComboBoxItem;
+                ComboBoxItem drink = CmbxDrink.SelectedItem as ComboBoxItem;
+                ComboBoxItem dessert = CmbxDessert.SelectedItem as ComboBoxItem;
+
+                if (string.IsNullOrEmpty(name))
+                {
+                    MessageBox.Show("Please enter a name.", "Warning!");
+                }
+                else if (starter.Text == null)
+                {
+                    MessageBox.Show("Please select a starter.", "Warning!");
+                }
+                else if (mainPlate.Text == null)
+                {
+                    MessageBox.Show("Please select a main plate.", "Warning!");
+                }
+                else if (drink.Text == null)
+                {
+                    MessageBox.Show("Please select a drink.", "Warning!");
+                }
+                else if (dessert.Text == null)
+                {
+                    MessageBox.Show("Please select a dessert.", "Warning!");
+                }
+                else
+                {
+                    OrderService orderService = new OrderService();
+
+                    Order newOrder = new Order
+                    {
+                        Table = TableRepository.Instance.SelectedTable,
+                        Name = name,
+                        Starter = starter.Text,
+                        MainPlate = mainPlate.Text,
+                        Drink = drink.Text,
+                        Dessert = dessert.Text
+                    };
+
+                    orderService.Add(newOrder);
+                    CloseForm();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please complete all fields.", "Warning!");
+            }
+        }
+
+        private void CloseForm()
+        {
+            this.Close();
+        }
 
         private void LoadStarterOptions()
         {
@@ -262,11 +329,6 @@ namespace RestaurantOrderTaker
             }
 
             CmbxDessert.SelectedItem = CmbxDessert.Items[0];
-        }
-
-        private void CloseForm()
-        {
-            this.Close();
         }
 
         #endregion

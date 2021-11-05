@@ -1,4 +1,6 @@
-﻿using BusinessLayer.Repository;
+﻿using BusinessLayer.Model;
+using BusinessLayer.Repository;
+using BusinessLayer.Service;
 using RestaurantOrderTaker.CustomControlItem;
 using System;
 using System.Collections.Generic;
@@ -14,18 +16,34 @@ namespace RestaurantOrderTaker
     {
         public static TableOrderForm Instance { get; } = new TableOrderForm();
 
+        private readonly OrderService orderService;
+
         public TableOrderForm()
         {
             InitializeComponent();
 
+            orderService = new OrderService();
+        }
+
+        #region Events
+
+        private void TableOrderForm_Load(object sender, EventArgs e)
+        {
             // Update table selected.
             LblTableToOrder.Text = $"Table # {TableRepository.Instance.SelectedTable}";
 
             // Load ComboBox options.
             LoadPeopleOnTableOptions();
+
+            // Load all orders in table.
+            LoadOrders();
         }
 
-        #region Events
+        private void TableOrderForm_VisibleChanged(object sender, EventArgs e)
+        {
+            // Load all orders in table.
+            LoadOrders();
+        }
 
         private void TableOrderForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -34,13 +52,26 @@ namespace RestaurantOrderTaker
 
         private void BtnTakeOrder_Click(object sender, EventArgs e)
         {
-            TakeOrderForm newTakeOrderForm = new TakeOrderForm();
-            newTakeOrderForm.Show();
-            this.Hide();
+            TakeOrder();
+        }
+
+        private void BtnSaveOrders_Click(object sender, EventArgs e)
+        {
+            CloseForm();
         }
 
         private void BtnCancelOrders_Click(object sender, EventArgs e)
         {
+            List<Order> orders = orderService.GetAll();
+
+            for (int i = 0; i < orders.Count; i++)
+            {
+                if (orders[i].Table == TableRepository.Instance.SelectedTable)
+                {
+                    LbxOrders.Items.RemoveAt(i);
+                }
+            }
+
             CloseForm();
         }
 
@@ -52,6 +83,23 @@ namespace RestaurantOrderTaker
         #endregion
 
         #region Methods
+
+        private void TakeOrder()
+        {
+            List<Order> orders = orderService.GetAllByTable(TableRepository.Instance.SelectedTable);
+            ComboBoxItem peopleOnTable = CmbxPeopleOntable.SelectedItem as ComboBoxItem;
+
+            if (int.Parse(peopleOnTable.Text) > orders.Count)
+            {
+                TakeOrderForm newTakeOrderForm = new TakeOrderForm();
+                newTakeOrderForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Orders for all people in the table have been taken.", "Warning!");
+            }
+        }
 
         private void LoadPeopleOnTableOptions()
         {
@@ -67,6 +115,22 @@ namespace RestaurantOrderTaker
             }
 
             CmbxPeopleOntable.SelectedItem = CmbxPeopleOntable.Items[0];
+        }
+
+        private void LoadOrders()
+        {
+            LbxOrders.BeginUpdate();
+
+            LbxOrders.Items.Clear();
+
+            List<Order> orders = orderService.GetAllByTable(TableRepository.Instance.SelectedTable);
+            
+            foreach (Order order in orders)
+            {
+                LbxOrders.Items.Add(order.Name);
+            }
+
+            LbxOrders.EndUpdate();
         }
 
         #endregion

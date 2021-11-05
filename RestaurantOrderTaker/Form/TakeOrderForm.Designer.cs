@@ -40,8 +40,8 @@ namespace RestaurantOrderTaker
             this.CmbxMainPlate = new System.Windows.Forms.ComboBox();
             this.CmbxDrink = new System.Windows.Forms.ComboBox();
             this.CmbxDessert = new System.Windows.Forms.ComboBox();
-            this.BtnSaveOrder = new System.Windows.Forms.Button();
             this.BtnCancelOrder = new System.Windows.Forms.Button();
+            this.BtnSaveOrder = new System.Windows.Forms.Button();
             this.TblTakeOrder.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -187,18 +187,6 @@ namespace RestaurantOrderTaker
             this.CmbxDessert.Size = new System.Drawing.Size(192, 29);
             this.CmbxDessert.TabIndex = 10;
             // 
-            // BtnSaveOrder
-            // 
-            this.BtnSaveOrder.BackColor = System.Drawing.Color.LightGreen;
-            this.BtnSaveOrder.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnSaveOrder.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnSaveOrder.Location = new System.Drawing.Point(87, 356);
-            this.BtnSaveOrder.Name = "BtnSaveOrder";
-            this.BtnSaveOrder.Size = new System.Drawing.Size(192, 33);
-            this.BtnSaveOrder.TabIndex = 12;
-            this.BtnSaveOrder.Text = "Save";
-            this.BtnSaveOrder.UseVisualStyleBackColor = false;
-            // 
             // BtnCancelOrder
             // 
             this.BtnCancelOrder.BackColor = System.Drawing.Color.IndianRed;
@@ -211,6 +199,19 @@ namespace RestaurantOrderTaker
             this.BtnCancelOrder.Text = "Cancel";
             this.BtnCancelOrder.UseVisualStyleBackColor = false;
             this.BtnCancelOrder.Click += new System.EventHandler(this.BtnCancelOrder_Click);
+            // 
+            // BtnSaveOrder
+            // 
+            this.BtnSaveOrder.BackColor = System.Drawing.Color.LightGreen;
+            this.BtnSaveOrder.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnSaveOrder.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnSaveOrder.Location = new System.Drawing.Point(87, 356);
+            this.BtnSaveOrder.Name = "BtnSaveOrder";
+            this.BtnSaveOrder.Size = new System.Drawing.Size(192, 33);
+            this.BtnSaveOrder.TabIndex = 12;
+            this.BtnSaveOrder.Text = "Save";
+            this.BtnSaveOrder.UseVisualStyleBackColor = false;
+            this.BtnSaveOrder.Click += new System.EventHandler(this.BtnSaveOrder_Click);
             // 
             // TakeOrderForm
             // 

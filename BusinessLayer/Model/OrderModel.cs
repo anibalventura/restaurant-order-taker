@@ -4,9 +4,9 @@ using System.Text;
 
 namespace BusinessLayer.Model
 {
-    class Order
+    public class Order
     {
-        public string Table { get; set; }
+        public int Table { get; set; }
         public string Name { get; set; }
         public string Starter { get; set; }
         public string MainPlate { get; set; }

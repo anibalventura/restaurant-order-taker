@@ -79,6 +79,7 @@ namespace RestaurantOrderTaker
             this.BtnSaveOrders.TabIndex = 2;
             this.BtnSaveOrders.Text = "Save";
             this.BtnSaveOrders.UseVisualStyleBackColor = false;
+            this.BtnSaveOrders.Click += new System.EventHandler(this.BtnSaveOrders_Click);
             // 
             // BtnCancelOrders
             // 
@@ -167,6 +168,8 @@ namespace RestaurantOrderTaker
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Table Order";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TableOrderForm_FormClosed);
+            this.Load += new System.EventHandler(this.TableOrderForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.TableOrderForm_VisibleChanged);
             this.TblTableOrder.ResumeLayout(false);
             this.TblTableOrder.PerformLayout();
             this.ResumeLayout(false);
