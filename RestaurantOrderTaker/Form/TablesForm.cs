@@ -20,6 +20,8 @@ namespace RestaurantOrderTaker
             InitializeComponent();
         }
 
+        #region Events
+
         private void BtnTableOne_Click(object sender, EventArgs e)
         {
             TableOrderForm newTableOrderForm = new TableOrderForm();
@@ -54,5 +56,13 @@ namespace RestaurantOrderTaker
             newTableOrderForm.Show();
             this.Hide();
         }
+
+        #endregion
+
+        #region Methods
+
+
+
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantOrderTaker.CustomControlItem;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,12 @@ namespace RestaurantOrderTaker
         public TableOrderForm()
         {
             InitializeComponent();
+
+            // Load ComboBox options.
+            LoadPeopleOnTableOptions();
         }
+
+        #region Events
 
         private void TableOrderForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -38,5 +44,27 @@ namespace RestaurantOrderTaker
         {
             this.Close();
         }
+
+        #endregion
+
+        #region Methods
+
+        private void LoadPeopleOnTableOptions()
+        {
+            for (int i = 1; i <= 4; i++)
+            {
+                ComboBoxItem newItem = new ComboBoxItem
+                {
+                    Text = i.ToString(),
+                    Value = i
+                };
+
+                CmbxPeopleOntable.Items.Add(newItem);
+            }
+
+            CmbxPeopleOntable.SelectedItem = CmbxPeopleOntable.Items[0];
+        }
+
+        #endregion
     }
 }
