@@ -62,13 +62,13 @@ namespace RestaurantOrderTaker
 
         private void BtnCancelOrders_Click(object sender, EventArgs e)
         {
-            List<Order> orders = orderService.GetAll();
+            List<Order> orders = OrderRepository.Instance.AllOrders;
 
             for (int i = 0; i < orders.Count; i++)
             {
                 if (orders[i].Table == TableRepository.Instance.SelectedTable)
                 {
-                    LbxOrders.Items.RemoveAt(i);
+                    orders.RemoveAt(i);
                 }
             }
 
