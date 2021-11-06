@@ -62,19 +62,19 @@ namespace RestaurantOrderTaker
             {
                 MessageBox.Show("Please enter a name.", "Warning!");
             }
-            else if (starter.Text == null)
+            else if (starter.Value == null)
             {
                 MessageBox.Show("Please select a starter.", "Warning!");
             }
-            else if (mainPlate.Text == null)
+            else if (mainPlate.Value == null)
             {
                 MessageBox.Show("Please select a main plate.", "Warning!");
             }
-            else if (drink.Text == null)
+            else if (drink.Value == null)
             {
                 MessageBox.Show("Please select a drink.", "Warning!");
             }
-            else if (dessert.Text == null)
+            else if (dessert.Value == null)
             {
                 MessageBox.Show("Please select a dessert.", "Warning!");
             }
