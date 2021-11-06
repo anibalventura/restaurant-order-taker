@@ -4,9 +4,10 @@
 [![License](https://img.shields.io/static/v1?label=License&message=MIT&color=blue)](LICENCE.md)
 
 <p align="center">
-  <img src="Screenshots/1.png" height=240px/>
-  <img src="Screenshots/2.png" height=240px/>
-  <img src="Screenshots/3.png" height=240px/>
+  <img src="Screenshots/1.png" height=250px/>
+  <img src="Screenshots/4.png" height=250px/>
+  <img src="Screenshots/2.png" height=250px/>
+  <img src="Screenshots/3.png" height=250px/>
 </p>
 
 WinForm app to take orders in a restaurant, written in .NET using OOP.
