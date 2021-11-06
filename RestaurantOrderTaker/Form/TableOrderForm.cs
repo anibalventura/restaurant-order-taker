@@ -70,12 +70,6 @@ namespace RestaurantOrderTaker
             CancelOrders();
         }
 
-        private void CloseForm()
-        {
-            TablesForm.Instance.Show();
-            this.Hide();
-        }
-
         #endregion
 
         #region Methods
@@ -100,14 +94,22 @@ namespace RestaurantOrderTaker
         private void SaveOrders()
         {
             List<Order> orders = tableService.GetAll();
+            ComboBoxItem peopleOnTable = CmbxPeopleOntable.SelectedItem as ComboBoxItem;
 
-            foreach (Order order in orders)
+            if (int.Parse(peopleOnTable.Text) == orders.Count)
             {
-                orderService.Add(order);
-            }
+                foreach (Order order in orders)
+                {
+                    orderService.Add(order);
+                }
 
-            CancelOrders();
-            CloseForm();
+                CancelOrders();
+                CloseForm();
+            }
+            else
+            {
+                MessageBox.Show("Take an order for all people in the table.", "Warning!");
+            }
         }
 
         private void CancelOrders()
@@ -115,6 +117,12 @@ namespace RestaurantOrderTaker
             List<Order> orders = TableRepository.Instance.Orders;
             orders.Clear();
             CloseForm();
+        }
+
+        private void CloseForm()
+        {
+            TablesForm.Instance.Show();
+            this.Hide();
         }
 
         private void LoadPeopleOnTableOptions()
