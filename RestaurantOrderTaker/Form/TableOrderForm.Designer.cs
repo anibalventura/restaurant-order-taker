@@ -140,6 +140,7 @@ namespace RestaurantOrderTaker
             // CmbxPeopleOntable
             // 
             this.CmbxPeopleOntable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CmbxPeopleOntable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbxPeopleOntable.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CmbxPeopleOntable.FormattingEnabled = true;
             this.CmbxPeopleOntable.Location = new System.Drawing.Point(284, 98);

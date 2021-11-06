@@ -1,5 +1,4 @@
-﻿using BusinessLayer.Interface;
-using BusinessLayer.Model;
+﻿using BusinessLayer.Model;
 using BusinessLayer.Repository;
 using System;
 using System.Collections.Generic;

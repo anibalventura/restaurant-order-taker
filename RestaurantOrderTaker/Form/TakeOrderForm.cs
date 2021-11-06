@@ -18,15 +18,18 @@ namespace RestaurantOrderTaker
         public TakeOrderForm()
         {
             InitializeComponent();
+        }
 
+        #region Events
+        
+        private void TakeOrderForm_Load(object sender, EventArgs e)
+        {
             // Load ComboBox options.
             LoadStarterOptions();
             LoadMainPlateOptions();
             LoadDrinkOptions();
             LoadDessertOptions();
         }
-
-        #region Events
 
         private void TakeOrderForm_FormClosed(object sender, FormClosedEventArgs e)
         {

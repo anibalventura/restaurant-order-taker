@@ -221,8 +221,9 @@ namespace RestaurantOrderTaker
             this.Controls.Add(this.TblTakeOrder);
             this.Name = "TakeOrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TakeOrderForm";
+            this.Text = "Take an Order";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TakeOrderForm_FormClosed);
+            this.Load += new System.EventHandler(this.TakeOrderForm_Load);
             this.TblTakeOrder.ResumeLayout(false);
             this.TblTakeOrder.PerformLayout();
             this.ResumeLayout(false);
