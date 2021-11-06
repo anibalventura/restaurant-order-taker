@@ -1,5 +1,4 @@
-﻿using BusinessLayer.Interface;
-using BusinessLayer.Model;
+﻿using BusinessLayer.Model;
 using BusinessLayer.Repository;
 using System;
 using System.Collections.Generic;
@@ -7,9 +6,9 @@ using System.Text;
 
 namespace BusinessLayer.Service
 {
-    public class OrderService
+    public class TableService
     {
-        OrderRepository orderRepository = OrderRepository.Instance;
+        TableRepository orderRepository = TableRepository.Instance;
 
         public void Add(Order newOrder)
         {

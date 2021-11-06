@@ -12,5 +12,10 @@ namespace BusinessLayer.Model
         public string MainPlate { get; set; }
         public string Drink { get; set; }
         public string Dessert { get; set; }
+
+        public string Data
+        {
+            get { return $"T{Table} {Name} - Starter: {Starter}, Main Plate: {MainPlate}, Drink: {Drink} and Dessert: {Dessert}"; }
+        }
     }
 }

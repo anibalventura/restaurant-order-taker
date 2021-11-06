@@ -57,7 +57,7 @@ namespace RestaurantOrderTaker
 
             foreach (Order order in orders)
             {
-                LboxAllOrders.Items.Add(order.Name);
+                LboxAllOrders.Items.Add(order.Data);
             }
 
             LboxAllOrders.EndUpdate();

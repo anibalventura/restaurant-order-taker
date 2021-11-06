@@ -9,7 +9,7 @@ namespace BusinessLayer.Repository
     {
         public static OrderRepository Instance { get; } = new OrderRepository();
 
-        public List<Order> AllOrders = new List<Order>();
+        public List<Order> Orders = new List<Order>();
 
         private OrderRepository() { }
     }

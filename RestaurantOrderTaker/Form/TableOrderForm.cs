@@ -16,12 +16,14 @@ namespace RestaurantOrderTaker
     {
         public static TableOrderForm Instance { get; } = new TableOrderForm();
 
+        private readonly TableService tableService;
         private readonly OrderService orderService;
 
         public TableOrderForm()
         {
             InitializeComponent();
 
+            tableService = new TableService();
             orderService = new OrderService();
         }
 
@@ -41,6 +43,9 @@ namespace RestaurantOrderTaker
 
         private void TableOrderForm_VisibleChanged(object sender, EventArgs e)
         {
+            // Update table selected.
+            LblTableToOrder.Text = $"Table # {TableRepository.Instance.SelectedTable}";
+
             // Load all orders in table.
             LoadOrders();
         }
@@ -57,22 +62,12 @@ namespace RestaurantOrderTaker
 
         private void BtnSaveOrders_Click(object sender, EventArgs e)
         {
-            CloseForm();
+            SaveOrders();
         }
 
         private void BtnCancelOrders_Click(object sender, EventArgs e)
         {
-            List<Order> orders = OrderRepository.Instance.AllOrders;
-
-            for (int i = 0; i < orders.Count; i++)
-            {
-                if (orders[i].Table == TableRepository.Instance.SelectedTable)
-                {
-                    orders.RemoveAt(i);
-                }
-            }
-
-            CloseForm();
+            CancelOrders();
         }
 
         private void CloseForm()
@@ -87,7 +82,7 @@ namespace RestaurantOrderTaker
 
         private void TakeOrder()
         {
-            List<Order> orders = orderService.GetAllByTable(TableRepository.Instance.SelectedTable);
+            List<Order> orders = tableService.GetAll();
             ComboBoxItem peopleOnTable = CmbxPeopleOntable.SelectedItem as ComboBoxItem;
 
             if (int.Parse(peopleOnTable.Text) > orders.Count)
@@ -100,6 +95,26 @@ namespace RestaurantOrderTaker
             {
                 MessageBox.Show("Orders for all people in the table have been taken.", "Warning!");
             }
+        }
+
+        private void SaveOrders()
+        {
+            List<Order> orders = tableService.GetAll();
+
+            foreach (Order order in orders)
+            {
+                orderService.Add(order);
+            }
+
+            CancelOrders();
+            CloseForm();
+        }
+
+        private void CancelOrders()
+        {
+            List<Order> orders = TableRepository.Instance.Orders;
+            orders.Clear();
+            CloseForm();
         }
 
         private void LoadPeopleOnTableOptions()
@@ -124,11 +139,11 @@ namespace RestaurantOrderTaker
 
             LbxOrders.Items.Clear();
 
-            List<Order> orders = orderService.GetAllByTable(TableRepository.Instance.SelectedTable);
+            List<Order> orders = tableService.GetAll();
             
             foreach (Order order in orders)
             {
-                LbxOrders.Items.Add(order.Name);
+                LbxOrders.Items.Add(order.Data);
             }
 
             LbxOrders.EndUpdate();

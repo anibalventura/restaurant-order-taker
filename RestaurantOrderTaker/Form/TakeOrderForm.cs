@@ -49,55 +49,47 @@ namespace RestaurantOrderTaker
 
         private void SaveOrder()
         {
-            try
+            string name = TxbName.Text;
+            ComboBoxItem starter = CmbxStarter.SelectedItem as ComboBoxItem;
+            ComboBoxItem mainPlate = CmbxMainPlate.SelectedItem as ComboBoxItem;
+            ComboBoxItem drink = CmbxDrink.SelectedItem as ComboBoxItem;
+            ComboBoxItem dessert = CmbxDessert.SelectedItem as ComboBoxItem;
+
+            if (string.IsNullOrEmpty(name))
             {
-                string name = TxbName.Text;
-                ComboBoxItem starter = CmbxStarter.SelectedItem as ComboBoxItem;
-                ComboBoxItem mainPlate = CmbxMainPlate.SelectedItem as ComboBoxItem;
-                ComboBoxItem drink = CmbxDrink.SelectedItem as ComboBoxItem;
-                ComboBoxItem dessert = CmbxDessert.SelectedItem as ComboBoxItem;
-
-                if (string.IsNullOrEmpty(name))
-                {
-                    MessageBox.Show("Please enter a name.", "Warning!");
-                }
-                else if (starter.Text == null)
-                {
-                    MessageBox.Show("Please select a starter.", "Warning!");
-                }
-                else if (mainPlate.Text == null)
-                {
-                    MessageBox.Show("Please select a main plate.", "Warning!");
-                }
-                else if (drink.Text == null)
-                {
-                    MessageBox.Show("Please select a drink.", "Warning!");
-                }
-                else if (dessert.Text == null)
-                {
-                    MessageBox.Show("Please select a dessert.", "Warning!");
-                }
-                else
-                {
-                    OrderService orderService = new OrderService();
-
-                    Order newOrder = new Order
-                    {
-                        Table = TableRepository.Instance.SelectedTable,
-                        Name = name,
-                        Starter = starter.Text,
-                        MainPlate = mainPlate.Text,
-                        Drink = drink.Text,
-                        Dessert = dessert.Text
-                    };
-
-                    orderService.Add(newOrder);
-                    CloseForm();
-                }
+                MessageBox.Show("Please enter a name.", "Warning!");
             }
-            catch (Exception ex)
+            else if (starter.Text == null)
             {
-                MessageBox.Show("Please complete all fields.", "Warning!");
+                MessageBox.Show("Please select a starter.", "Warning!");
+            }
+            else if (mainPlate.Text == null)
+            {
+                MessageBox.Show("Please select a main plate.", "Warning!");
+            }
+            else if (drink.Text == null)
+            {
+                MessageBox.Show("Please select a drink.", "Warning!");
+            }
+            else if (dessert.Text == null)
+            {
+                MessageBox.Show("Please select a dessert.", "Warning!");
+            }
+            else
+            {
+                TableService tableService = new TableService();
+
+                Order newOrder = new Order
+                {
+                    Table = TableRepository.Instance.SelectedTable,
+                    Name = name,
+                    Starter = starter.Text,
+                    MainPlate = mainPlate.Text,
+                    Drink = drink.Text,
+                };
+
+                tableService.Add(newOrder);
+                CloseForm();
             }
         }
 
